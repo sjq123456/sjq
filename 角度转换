@@ -1,0 +1,49 @@
+public const double N = 3.1415926;
+        public int du, fen, miao;
+        public double f;
+
+        public double DmstoDu(double a)//度分秒转化为度
+        {
+            du = (int)a;
+            fen = (int)(a - du) * 100;
+            miao = (int)((a - du) * 100 - fen) * 100;
+            f = du + fen / 60.0 + miao / 3600.0;
+            return f;
+        }
+        public double DutoDms(double b)//度转化为度分秒
+        {
+            int du, fen;
+            double miao;
+            double dTmp;
+            du = (int)(b);
+            dTmp = (b - du) * 60;
+            fen = (int)(dTmp);
+            miao = (dTmp - fen) * 60;
+            f = du + (double)(fen) / 100.0 + miao / 10000.0;
+            return f;
+        }
+        public double RadtoDu(double c)//弧度转化为度
+        {
+            f = c * 180 / N;
+            return f;
+        }
+        public double DutoRad(double d)//度转化为弧度
+        {
+            f = d * N / 180;
+            return f;
+        }
+        public double DmstoRad(double e)//度分秒转化为弧度
+        {
+            Class1 obl = new Class1();
+            double x = obl.DmstoDu(e);
+            f = obl.DutoRad(x);
+            return f;
+        }
+        public double RadtoDms(double h)//弧度转化为度分秒
+        {
+            Class1 obg = new Class1();
+            double y = obg.RadtoDu(h);
+            f = obg.DutoDms(y);
+            return f;
+        }
+ 
